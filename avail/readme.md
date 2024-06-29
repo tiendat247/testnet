@@ -1,4 +1,9 @@
-![enter image description here](https://block-sync.com/wp-content/uploads/2024/02/avail.png)
+<p align="center">
+  <a href="https://availproject.org">
+    <img src="https://block-sync.com/wp-content/uploads/2024/02/avail.png" alt="Avail" width="500px" style="display: block; margin-left: auto; margin-right: auto;">
+  </a>
+</p>
+
 ### 
 
 **Avail's Clash of Nodes Testnet**
