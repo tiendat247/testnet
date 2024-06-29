@@ -1,8 +1,4 @@
-<td align="center" width="100%">
-        <img height="60px" src="https://block-sync.com/wp-content/uploads/2024/02/avail.png">
-</td
-*The essential base layer for modern blockchains. With Avail, it’s never been easier to spin up your own blockchains*
-
+![enter image description here](https://block-sync.com/wp-content/uploads/2024/02/avail.png)
 ### 
 
 **Avail's Clash of Nodes Testnet**
