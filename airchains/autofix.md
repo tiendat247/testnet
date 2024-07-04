@@ -21,13 +21,15 @@ Close Tmux by using Ctrl+B,D
 
 # Define service name and log search strings
 service_name="trackd"
-error_pattern1="ERR Error in SubmitPod Transaction Error="
+error_pattern1=(
+    "ERR Error in SubmitPod Transaction Error="
+    "Failed to Validate VRF"
+)
 error_pattern2=(
     "with gas used"
     "Failed to Transact Verify pod"
     "Failed to Init VRF"
     "VRF record is nil"
-    "Failed to Validate VRF"
     "Switchyard client connection error"
 )
 error_pattern3="Failed to get transaction by hash: not found"
