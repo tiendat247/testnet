@@ -1,11 +1,20 @@
+
 Create a Tmux session
+
 ```tmux new -t fix```
+
 Create file fix.sh
+
 ```nano fix.sh```
+
 Copy and paste below code to fix.sh and save by Ctrl+O, Enter, Ctrl+x
+
 After that, run script with command
+
 ```bash fix.sh```
+
 Close Tmux by using Ctrl+B,D
+
 ######Code#######
 ```
 #!/bin/bash
