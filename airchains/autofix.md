@@ -88,4 +88,4 @@ while true; do
 
   # Sleep for the restart delay
   sleep "$restart_delay"
-done```
+done
