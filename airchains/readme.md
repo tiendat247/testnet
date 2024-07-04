@@ -91,7 +91,7 @@ VAL_KEY="mykey"
 
 ```console
 # You can copy and paste the entire block with just one command.
-sudo tee /etc/systemd/system/rolld.service > /dev/null << EOF
+sudo tee /etc/systemd/system/evmd.service > /dev/null << EOF
 [Unit]
 Description=ZK
 After=network.target
@@ -112,9 +112,9 @@ EOF
 
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable rolld
-sudo systemctl start rolld
-sudo journalctl -u rolld -f --no-hostname -o cat
+sudo systemctl enable evmd
+sudo systemctl start evmd
+sudo journalctl -u evmd -f --no-hostname -o cat
 ```
 > You should see the logs flowing.
 
@@ -258,7 +258,7 @@ go run cmd/main.go create-station --accountName <moniker-name> --accountPath $HO
 
 
 ```console
-sudo tee /etc/systemd/system/stationd.service > /dev/null << EOF
+sudo tee /etc/systemd/system/trackd.service > /dev/null << EOF
 [Unit]
 Description=station track service
 After=network-online.target
@@ -276,9 +276,9 @@ EOF
 
 ```console
 sudo systemctl daemon-reload
-sudo systemctl enable stationd
-sudo systemctl restart stationd
-sudo journalctl -u stationd -f --no-hostname -o cat
+sudo systemctl enable trackd
+sudo systemctl restart trackd
+sudo journalctl -u trackd -f --no-hostname -o cat
 ```
 
 <h1 align="center">Installation complete, right?</h1>
@@ -309,12 +309,12 @@ From here on, you can either deploy a contract or manually send transactions; it
 For those experiencing RPC errors during the tracking process, they can try to roll back. Sometimes the issue is resolved with 1 rollback, other times it may require 3 rollback operations. Run the command `go run cmd/main.go rollback` as many times as you want to perform a rollback. Wait for the output after each run.
 
 ```
-systemctl stop stationd
+systemctl stop trackd
 cd tracks
 git pull
 go run cmd/main.go rollback
-sudo systemctl restart stationd
-sudo journalctl -u stationd -f --no-hostname -o cat
+sudo systemctl restart trackd
+sudo journalctl -u trackd -f --no-hostname -o cat
 ```
 
 
