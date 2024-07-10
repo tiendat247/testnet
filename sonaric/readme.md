@@ -27,13 +27,13 @@ Incentivized Infor: https://docs.sonaric.xyz/community/incentive-program.html
 
 **#Backup Wallet**
 
-    sonaric identity-export -o wallet.identity
+    sonaric identity-export -o mywallet.identity
 **<<IMPORTANT!!>>**
 Enter password and a "wallet.identity" file will be created at root folder. Download and save this file to safety place 
 
 **#Recover Wallet**
 
-    sonaric identity-import -i wallet.identity
+    sonaric identity-import -i mywallet.identity
 
 **#Re-name your node**
 
