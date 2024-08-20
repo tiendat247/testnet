@@ -151,7 +151,7 @@ cd availup
 
 ```console
 # You can copy and paste the entire block with just one command.
-sudo tee /etc/systemd/system/availd.service > /dev/null <<'EOF'
+sudo tee /etc/systemd/system/availd.service > /dev/null << EOF
 [Unit]
 Description=Avail Light Node
 After=network.target
@@ -162,7 +162,7 @@ User=root
 Type=simple
 Restart=always
 RestartSec=120
-ExecStart=/root/.avail/turing/bin/avail-light --network turing --app-id 36 --identity /root/.avail/identity/identity.toml
+ExecStart=/bin/bash $HOME/availup/availup.sh --network "turing" --app_id 36 --identity /root/.avail/identity/identity.toml
 
 [Install]
 WantedBy=multi-user.target
