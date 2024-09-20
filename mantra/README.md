@@ -119,3 +119,41 @@ fi
 sudo systemctl enable mantrachaind
 sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f
 ```
+#Create wallet
+# to create a new wallet, use the following command. don’t forget to save the mnemonic
+```mantrachaind keys add $WALLET```
+
+# to restore exexuting wallet, use the following command
+```mantrachaind keys add $WALLET --recover```
+
+# save wallet and validator address
+```WALLET_ADDRESS=$(mantrachaind keys show $WALLET -a)
+VALOPER_ADDRESS=$(mantrachaind keys show $WALLET --bech val -a)
+echo "export WALLET_ADDRESS="$WALLET_ADDRESS >> $HOME/.bash_profile
+echo "export VALOPER_ADDRESS="$VALOPER_ADDRESS >> $HOME/.bash_profile
+source $HOME/.bash_profile
+```
+
+# check sync status, once your node is fully synced, the output from above will print "false"
+```mantrachaind status 2>&1 | jq ```
+
+# before creating a validator, you need to fund your wallet and check balance
+```mantrachaind query bank balances $WALLET_ADDRESS ```
+
+# Create validator
+```mantrachaind tx staking create-validator \
+--amount 1000000uom \
+--from $WALLET \
+--commission-rate 0.1 \
+--commission-max-rate 0.2 \
+--commission-max-change-rate 0.01 \
+--min-self-delegation 1 \
+--pubkey $(mantrachaind tendermint show-validator) \
+--moniker "mynode" \
+--identity "" \
+--website "" \
+--details "" \
+--chain-id mantra-hongbai-1 \
+--gas auto --gas-adjustment 1.5 --fees 50uom \
+-y
+```
