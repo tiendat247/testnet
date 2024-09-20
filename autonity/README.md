@@ -151,7 +151,7 @@ Consensus Public Key:   0x1aa83a28e2xxx41fg01ccc46e2b8d9dc16df3b6ff87ffa5ff6d7fx
 ./ethkey verifypop <TREASURY_ADDRESS> <ENODE_URL> <ORACLE_ADDRESS> <CONSENSUS_PUBLIC_KEY> <PROOF>
 ```
 **#Submit the registration transaction **
-``
+```
 aut validator register <ENODE> <ORACLE ADDRESS> <CONSENSUS_KEY> <PROOF> | aut tx sign - | aut tx send -
 ```
 ```
