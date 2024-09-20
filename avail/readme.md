@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://availproject.org">
-    <img src="https://block-sync.com/wp-content/uploads/2024/02/avail.png" alt="Avail" width="500px" style="display: block; margin-left: auto; margin-right: auto;">
+    <img src="https://pbs.twimg.com/profile_images/1671126588694609920/THQgYJtf_400x400.png" alt="Avail" width="500px" style="display: block; margin-left: auto; margin-right: auto;">
   </a>
 </p>
 
