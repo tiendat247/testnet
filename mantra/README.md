@@ -54,7 +54,8 @@ sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*seeds *=.*/seeds = \"$SEEDS\"/}" \
 
 
 # set custom ports in app.toml
-```sed -i.bak -e "s%:1317%:${MANTRA_PORT}317%g;
+```
+sed -i.bak -e "s%:1317%:${MANTRA_PORT}317%g;
 s%:8080%:${MANTRA_PORT}080%g;
 s%:9090%:${MANTRA_PORT}090%g;
 s%:9091%:${MANTRA_PORT}091%g;
@@ -64,7 +65,8 @@ s%:6065%:${MANTRA_PORT}065%g" $HOME/.mantrachain/config/app.toml
 ```
 
 # set custom ports in config.toml file
-```sed -i.bak -e "s%:26658%:${MANTRA_PORT}658%g;
+```
+sed -i.bak -e "s%:26658%:${MANTRA_PORT}658%g;
 s%:26657%:${MANTRA_PORT}657%g;
 s%:6060%:${MANTRA_PORT}060%g;
 s%:26656%:${MANTRA_PORT}656%g;
@@ -73,13 +75,15 @@ s%:26660%:${MANTRA_PORT}660%g" $HOME/.mantrachain/config/config.toml
 ```
 
 # config pruning
-```sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.mantrachain/config/app.toml
+```
+sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.mantrachain/config/app.toml
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.mantrachain/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.mantrachain/config/app.toml
 ```
 
 # set minimum gas price, enable prometheus and disable indexing
-```sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.0002uom"|g' $HOME/.mantrachain/config/app.toml
+```
+sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.0002uom"|g' $HOME/.mantrachain/config/app.toml
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.mantrachain/config/config.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.mantrachain/config/config.toml
 ```
