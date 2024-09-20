@@ -121,7 +121,8 @@ sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f
 ```
 #Create wallet
 # to create a new wallet, use the following command. don’t forget to save the mnemonic
-```mantrachaind keys add $WALLET
+```
+mantrachaind keys add $WALLET
 ```
 
 # to restore exexuting wallet, use the following command
