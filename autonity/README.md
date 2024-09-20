@@ -1,4 +1,4 @@
-##Install Aut and Create Wallet.Key
+#**Install Aut and Create Wallet.Key**
 ```
 sudo apt update && apt upgrade -y
 
@@ -14,7 +14,7 @@ pipx ensurepath
 
 source ~/.bashrc
 ```
-#<TREASURY_ADDRESS>
+#**<TREASURY_ADDRESS>**
 ```
 mkdir piccadilly-keystore && aut account new --keyfile ./piccadilly-keystore/wallet.key
 ```
@@ -24,12 +24,12 @@ echo '[aut]' > .autrc
 echo 'rpc_endpoint = https://rpc1.piccadilly.autonity.org/' >> .autrc
 echo 'keyfile = /root/piccadilly-keystore/wallet.key' >> .autrc
 ```
-#Create Oracle Key
-#<ORACLE_ADDRESS>
+**#Create Oracle Key
+#<ORACLE_ADDRESS>**
 ```
 aut account new --keyfile ./piccadilly-keystore/oracle.key
 ```
-#Running a Node
+**#Running a Node**
 ```
 mkdir autonity-go-client
 cd autonity-go-client
@@ -37,7 +37,7 @@ wget https://github.com/autonity/autonity/releases/download/v0.14.0/autonity-lin
 tar zxvf autonity-linux-amd64-0.14.0.tar.gz && rm autonity-linux-amd64-0.14.0.tar.gz
 sudo cp -r autonity /usr/local/bin/autonity
 ````
-#Run Autonity
+**#Run Autonity**
 ```
 cd && mkdir autonity-chaindata
 ```
@@ -72,7 +72,7 @@ EOF
 systemctl enable autonityd && systemctl restart autonityd && journalctl -fu autonityd -o cat
 ```
 
-#Install Autonity Oracle Server
+**#Install Autonity Oracle Server**
 ```
 cd && wget https://github.com/autonity/autonity-oracle/releases/download/v0.1.9/autonity-oracle.tgz && tar zxvf autonity-oracle.tgz && cd autonity-oracle && sudo cp -r autoracle /usr/local/bin/autoracle
 ```
@@ -111,11 +111,11 @@ wget https://block-sync.com/services/autonity//ethkey
 chmod +x ethkey
 ./ethkey inspect --private /root/piccadilly-keystore/oracle.key
 ```
-#copy Private key
+**#copy Private key**
 ```
 echo '<Private key>' > /root/piccadilly-keystore/oraclehex.key
 ```
-#Generate a cryptographic proof of node ownership <PROOF>
+**#Generate a cryptographic proof of node ownership <PROOF>**
 ```
 autonity genOwnershipProof --autonitykeys /root/autonity-chaindata/autonity/autonitykeys --oraclekey /root/piccadilly-keystore/oraclehex.key <TREASURY_ACCOUNT_ADDRESS>
 ```
@@ -131,11 +131,11 @@ aut node info
 "admin_enode": "enode://cef6334d0855b72dadaa923ceae532550exxxx0288a393eda5d811b9e81053e1324e637a202e21d04e301fe1765900bdd9f3873d58a2badf693331cb1b15@751.11.121.34:30303"
 
 
-#The validator address
+**#The validator address**
 ```
 aut validator compute-address enode://cef6334d0855b72dadaa923ceae532550exxxx0288a393eda5d811b9e81053e1324e637a202e21d04e301fe1765900bdd9f3873d58a2badf693331cb1b15@751.11.121.34:30303
 ```
-#Determine the validator consensus public key
+**#Determine the validator consensus public key**
 ```
 cd ~/autonity-go-client/ && ./ethkey autinspect /root/autonity-chaindata/autonity/autonitykeys
 ```
@@ -146,11 +146,11 @@ Node Public Key:        0xcef6334dxxx72dadaa923ceae532550ef68e0acxxx88a393eda5d8
 Consensus Public Key:   0x1aa83a28e2xxx41fg01ccc46e2b8d9dc16df3b6ff87ffa5ff6d7fxxx9a60563237cd66a256f60a92e71
 ```
 
-#Verifying your ownership proof against your keys
+**#Verifying your ownership proof against your keys**
 ```
 ./ethkey verifypop <TREASURY_ADDRESS> <ENODE_URL> <ORACLE_ADDRESS> <CONSENSUS_PUBLIC_KEY> <PROOF>
 ```
-#Submit the registration transaction 
+**#Submit the registration transaction **
 ``
 aut validator register <ENODE> <ORACLE ADDRESS> <CONSENSUS_KEY> <PROOF> | aut tx sign - | aut tx send -
 ```
