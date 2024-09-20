@@ -125,11 +125,13 @@ sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f
 ```
 
 # to restore exexuting wallet, use the following command
-```mantrachaind keys add $WALLET --recover
+```
+mantrachaind keys add $WALLET --recover
 ```
 
 # save wallet and validator address
-```WALLET_ADDRESS=$(mantrachaind keys show $WALLET -a)
+```
+WALLET_ADDRESS=$(mantrachaind keys show $WALLET -a)
 VALOPER_ADDRESS=$(mantrachaind keys show $WALLET --bech val -a)
 echo "export WALLET_ADDRESS="$WALLET_ADDRESS >> $HOME/.bash_profile
 echo "export VALOPER_ADDRESS="$VALOPER_ADDRESS >> $HOME/.bash_profile
@@ -137,15 +139,18 @@ source $HOME/.bash_profile
 ```
 
 # check sync status, once your node is fully synced, the output from above will print "false"
-```mantrachaind status 2>&1 | jq 
+```
+mantrachaind status 2>&1 | jq
 ```
 
 # before creating a validator, you need to fund your wallet and check balance
-```mantrachaind query bank balances $WALLET_ADDRESS 
+```
+mantrachaind query bank balances $WALLET_ADDRESS
 ```
 
 # Create validator
-```mantrachaind tx staking create-validator \
+```
+mantrachaind tx staking create-validator \
 --amount 1000000uom \
 --from $WALLET \
 --commission-rate 0.1 \
